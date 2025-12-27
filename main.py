@@ -3,6 +3,8 @@ from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from logger import log_state
 def main():
     pygame.init()
+    fps_clock = pygame.time.Clock()
+    dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
     print(f"Screen width: {SCREEN_WIDTH}")
@@ -15,6 +17,8 @@ def main():
         
         screen.fill("black")
         pygame.display.flip()
+        dt = fps_clock.tick(60) / 1000
+        
 
 
 if __name__ == "__main__":
